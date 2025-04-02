@@ -11,10 +11,15 @@ type MealData = {
   title: string;
 };
 
-async function Page() {
-  const data = await getMeals(2000);
+async function Page({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string };
+}) {
+  const totalCalories = Number(searchParams.totalCalories);
+
+  const data = await getMeals(totalCalories);
   const { meals, nutrients } = data;
-  console.log(data);
 
   return (
     <div>

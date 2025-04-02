@@ -1,30 +1,53 @@
 "use client";
 
-import Button from "@/_components/Button";
-import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
+import PreserveParamsButton from "@/_components/PreserveParamsButton";
+import { calcPercentage } from "@/utils/calcPercentage";
+import { useSearchParams } from "next/navigation";
+import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
 
-const macronutrients = [
-  { name: "Protein", grams: 100, kcalPerGram: 4 },
-  { name: "Carbohydrates", grams: 50, kcalPerGram: 4 },
-  { name: "Fat", grams: 50, kcalPerGram: 9 },
-];
+export default function Page() {
+  const searchParams = useSearchParams();
 
-// Calcula as calorias totais
-const totalCalories = macronutrients.reduce(
-  (sum, macro) => sum + macro.grams * macro.kcalPerGram,
-  0,
-);
+  // Get total calories and macros from URL
+  const totalCalories = Number(searchParams.get("totalCalories"));
+  const carbs = Number(searchParams.get("carbs"));
+  const protein = Number(searchParams.get("protein"));
+  const fat = Number(searchParams.get("fat"));
 
-const data = macronutrients.map((macro) => ({
-  name: macro.name,
-  value: ((macro.grams * macro.kcalPerGram) / totalCalories) * 100, // Percentual das calorias
-  grams: macro.grams,
-  kcal: macro.grams * macro.kcalPerGram, // Adicionando calorias
-}));
+  // Calc calories of each macronutrient
+  const carbsKcal = carbs * 4;
+  const proteinKcal = protein * 4;
+  const fatKcal = fat * 9;
 
-const COLORS = ["#4CAF50", "#FF9800", "#F44336"];
+  // Calc percentages
+  const carbsPercentage = calcPercentage(carbs, totalCalories);
+  const proteinPercentage = calcPercentage(protein, totalCalories);
+  const fatPercentage = calcPercentage(fat, totalCalories);
 
-export default function MacronutrientPage() {
+  // Create array data for the graphic
+  const data = [
+    {
+      name: "Carbs",
+      value: carbsPercentage,
+      grams: carbs,
+      kcal: carbsKcal,
+    },
+    {
+      name: "Protein",
+      value: proteinPercentage,
+      grams: protein,
+      kcal: proteinKcal,
+    },
+    {
+      name: "Fat",
+      value: fatPercentage,
+      grams: fat,
+      kcal: fatKcal,
+    },
+  ];
+
+  const COLORS = ["#4CAF50", "#FF9800", "#F44336"];
+
   return (
     <div className="flex flex-col items-center justify-center bg-stone-100 px-6">
       <h1 className="mb-10 text-2xl font-bold">Macronutrients distribution</h1>
@@ -78,15 +101,15 @@ export default function MacronutrientPage() {
               ))}
             </Pie>
             <Tooltip
-              formatter={(value, name, entry) => [
+              formatter={(value: number, _, entry) => [
                 `${Math.round(value)}% (${entry.payload.kcal} kcal)`,
-                name,
+                entry.payload.name,
               ]}
             />
           </PieChart>
         </ResponsiveContainer>
 
-        {/* Legenda ao lado */}
+        {/* Caption */}
         <div className="mb-2 flex flex-col justify-center pl-6">
           {data.map((entry, index) => (
             <div key={index} className="mb-2 flex items-center">
@@ -98,7 +121,9 @@ export default function MacronutrientPage() {
             </div>
           ))}
         </div>
-        <Button href="/mealsSuggestions">Meals suggestions</Button>
+        <PreserveParamsButton newPath="/mealsSuggestions">
+          Meals suggestions
+        </PreserveParamsButton>
       </div>
     </div>
   );

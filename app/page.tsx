@@ -39,7 +39,7 @@ export default function Page() {
         <Feature text="Optimize your diet for better results." />
       </div>
 
-      <Button href="/inputPhysicalData">START</Button>
+      <Button href="/form">START</Button>
     </div>
   );
 }
