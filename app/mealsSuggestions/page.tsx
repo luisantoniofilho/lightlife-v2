@@ -1,5 +1,7 @@
 import { getMeals } from "@/_lib/spoonacular";
 import MealItem from "./MealItem";
+import { getUserData } from "@/_lib/firebaseActions";
+import { auth } from "@/_lib/auth";
 
 type MealData = {
   id: number;
@@ -12,9 +14,18 @@ type MealData = {
 };
 
 async function Page() {
-  const data = await getMeals(2000);
+  const session = await auth();
+
+  if (!session?.user?.email) throw new Error("User not authenticated");
+
+  const userData = await getUserData(session?.user?.email);
+
+  console.log(userData);
+
+  const totalCalories = userData!.totalCalories;
+
+  const data = await getMeals(totalCalories);
   const { meals, nutrients } = data;
-  console.log(data);
 
   return (
     <div>
