@@ -4,6 +4,7 @@ import Header from "./_components/Header";
 import { ReactNode } from "react";
 
 import { Quicksand } from "next/font/google"; // Importando a fonte Quicksand
+import { SessionProvider } from "next-auth/react";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -29,7 +30,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
         className={`${quicksand.className} flex min-h-screen flex-col bg-stone-100 text-stone-800 antialiased`}
       >
         {/* Header */}
-        <Header />
+        <SessionProvider>
+          <Header />
+        </SessionProvider>
 
         {/* Page content */}
         <main className="mx-auto flex-grow p-6">{children}</main>
