@@ -4,7 +4,7 @@ import { ChevronDoubleRightIcon } from "@heroicons/react/16/solid";
 
 function Feature({ text }: { text: string }) {
   return (
-    <div className="flex items-center gap-3 text-base sm:text-lg md:text-xl">
+    <div className="flex items-center gap-3 text-base sm:text-xl md:text-2xl">
       <ChevronDoubleRightIcon className="h-6 w-6 text-green-400" />
       <span>{text}</span>
     </div>
@@ -16,12 +16,12 @@ export default function Page() {
     <div className="flex flex-col items-center px-4 py-10">
       {/* Responsive titles */}
       <div className="flex flex-col gap-6 text-center text-stone-700">
-        <h1 className="text-5xl font-bold sm:text-4xl md:text-5xl lg:text-6xl">
+        <h1 className="text-4xl font-bold sm:text-5xl">
           Welcome to LightLifeV2
         </h1>
-        <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
+        <h2 className="text-3xl sm:text-4xl">
           Your journey to better nutrition starts here.
-        </p>
+        </h2>
       </div>
 
       {/* Main image */}
@@ -37,7 +37,7 @@ export default function Page() {
       </div>
 
       {/* Features */}
-      <div className="mb-8 flex flex-col gap-3 text-center">
+      <div className="mb-8 flex flex-col gap-3 text-center md:gap-6">
         <Feature text="Track your macros with precision." />
         <Feature text="Easily monitor your daily intake." />
         <Feature text="Get personalized meal plans." />
