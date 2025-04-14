@@ -1,5 +1,14 @@
 module.exports = {
   images: {
-    domains: ["spoonacular.com", "lh3.googleusercontent.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "aspoonacular.com",
+      },
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+      },
+    ],
   },
 };
