@@ -25,7 +25,7 @@ export default function Page() {
       </div>
 
       {/* Main image */}
-      <div className="relative mt-6 mb-12 w-full max-w-4xl">
+      <div className="relative mt-6 mb-12 w-full max-w-2xl">
         <Image
           className="h-auto w-full"
           priority
