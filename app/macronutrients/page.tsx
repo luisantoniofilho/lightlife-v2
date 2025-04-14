@@ -1,6 +1,8 @@
 import { auth } from "@/_lib/auth";
 import { getUserData } from "@/_lib/firebaseActions";
-import MacrosGraphic from "./MacrosGraphic";
+import MacrosGraphic from "../_components/MacrosGraphic";
+import { Suspense } from "react";
+import Spinner from "@/_components/Spinner";
 
 export default async function page() {
   const session = await auth();
@@ -11,10 +13,12 @@ export default async function page() {
 
   return (
     <section>
-      <MacrosGraphic
-        macros={user!.macros}
-        totalCalories={user!.totalCalories}
-      />
+      <Suspense fallback={<Spinner />}>
+        <MacrosGraphic
+          macros={user!.macros}
+          totalCalories={user!.totalCalories}
+        />
+      </Suspense>
     </section>
   );
 }
