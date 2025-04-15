@@ -29,13 +29,13 @@ export function Header() {
 
       {/* Desktop menu */}
       <nav className="hidden gap-4 sm:flex sm:gap-6">
-        <LoginIcon />
-
         {links.map(({ href, label }) => (
           <HeaderLink key={href} href={href}>
             {label}
           </HeaderLink>
         ))}
+
+        <LoginIcon />
       </nav>
 
       {/* Mobile menu button */}
