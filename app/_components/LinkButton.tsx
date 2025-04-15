@@ -10,7 +10,7 @@ export default function LinkButton({ href, children }: buttonProps) {
   return (
     <Link
       href={href}
-      className="flex cursor-pointer gap-2 rounded-full bg-green-600 px-8 py-3 text-lg tracking-widest text-white transition-all hover:bg-green-700 md:text-xl"
+      className="flex cursor-pointer gap-2 rounded-full bg-green-600 px-8 py-3 text-lg tracking-widest text-white transition-all hover:bg-green-700 lg:text-4xl"
     >
       {children}
     </Link>
