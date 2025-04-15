@@ -1,17 +1,9 @@
-import Link from "next/link";
+import { ReactNode } from "react";
 
-type buttonProps = {
-  href: string;
-  children: string;
-};
-
-export default function Button({ href, children }: buttonProps) {
+export default function Button({ children }: { children: ReactNode }) {
   return (
-    <Link
-      href={href}
-      className="rounded-full bg-green-600 px-8 py-3 text-lg tracking-widest text-white transition-all hover:bg-green-700"
-    >
+    <button className="rounded-full bg-green-600 px-8 py-3 text-lg tracking-widest text-white transition-all hover:bg-green-700">
       {children}
-    </Link>
+    </button>
   );
 }
