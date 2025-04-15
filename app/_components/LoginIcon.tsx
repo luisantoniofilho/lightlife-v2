@@ -1,13 +1,17 @@
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { HeaderLink } from "./HeaderLink";
-import { useSession } from "next-auth/react";
+import SpinnerMini from "./SpinnerMini";
 
 export function LoginIcon() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
 
   return (
     <HeaderLink href="/login">
-      {session ? (
+      {status === "loading" ? (
+        // Loading
+        <SpinnerMini />
+      ) : session ? (
         <Image
           className="rounded-full"
           src={session.user?.image ?? "/default-avatar.png"}
