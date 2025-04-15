@@ -15,7 +15,7 @@ type FeatureProps = {
 
 function Feature({ children, icon: Icon }: FeatureProps) {
   return (
-    <div className="flex items-center gap-3 text-base sm:text-xl md:text-xl">
+    <div className="flex items-center gap-3 text-base sm:text-2xl">
       <Icon className="h-6 w-6 text-green-600 md:h-8 md:w-8" />
       <span>{children}</span>
     </div>
@@ -48,7 +48,7 @@ export default function Page() {
       </div>
 
       {/* Features */}
-      <div className="mb-8 flex flex-col gap-3 text-center md:gap-6 lg:flex-row">
+      <div className="mb-8 flex flex-col gap-3 text-center sm:gap-5 md:gap-6 lg:mb-16 lg:flex-row">
         {/* Import the icons from heroicons */}
         <Feature icon={AdjustmentsHorizontalIcon}>
           Track your macros with precision.
