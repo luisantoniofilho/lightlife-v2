@@ -6,7 +6,7 @@ import {
 } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import { ElementType } from "react";
-import Button from "./_components/LinkButton";
+import LinkButton from "./_components/LinkButton";
 
 type FeatureProps = {
   children: React.ReactNode;
@@ -60,7 +60,7 @@ export default function Page() {
         </Feature>
       </div>
 
-      <Button href="/login">START</Button>
+      <LinkButton href="/login">START NOW</LinkButton>
 
       {/* New nutrition section */}
       <section className="mt-16 flex w-full max-w-6xl flex-col gap-10">
