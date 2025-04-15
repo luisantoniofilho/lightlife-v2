@@ -1,15 +1,17 @@
+import Button from "@/_components/Button";
 import Input from "@/_components/Input";
 import Select from "@/_components/Select";
 import { calcMacrosAction } from "@/_lib/actions";
 
 export default function Page() {
   return (
-    <>
-      <h2 className="mb-4 text-center text-2xl font-bold">
+    <div>
+      <h2 className="mb-4 text-center text-2xl font-bold md:mb-8 md:text-3xl">
         Enter your physical data
       </h2>
+
       <form
-        className="flex flex-col justify-center gap-3 rounded-lg bg-white p-6 shadow-md"
+        className="grid grid-cols-1 justify-center gap-3 rounded-lg bg-white p-6 shadow-md sm:grid-cols-2 md:gap-10 md:px-16"
         action={calcMacrosAction}
       >
         {/* Age */}
@@ -54,15 +56,10 @@ export default function Page() {
         />
 
         {/* Send button */}
-        <div className="self-center">
-          <button
-            className="cursor-pointer rounded-full bg-green-600 px-8 py-3 text-lg tracking-widest text-white transition-all hover:bg-green-700"
-            type="submit"
-          >
-            Send
-          </button>
+        <div className="flex justify-center sm:col-span-2">
+          <Button type="submit">Send form</Button>
         </div>
       </form>
-    </>
+    </div>
   );
 }
