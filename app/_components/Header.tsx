@@ -18,11 +18,11 @@ export function Header() {
   ];
 
   return (
-    <header className="flex items-center justify-between border-b border-stone-50 px-6 py-4 sm:justify-center sm:gap-10">
+    <header className="flex items-center justify-between border-b border-stone-50 px-6 py-4 sm:gap-10 lg:mx-32">
       {/* Logo */}
       <Link
         href="/"
-        className="text-primary-900 hover:text-primary-200 text-2xl"
+        className="text-primary-900 hover:text-primary-200 text-2xl lg:text-3xl"
       >
         LightLifeV2
       </Link>
