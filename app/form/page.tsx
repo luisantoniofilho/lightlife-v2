@@ -6,12 +6,12 @@ import { calcMacrosAction } from "@/_lib/actions";
 export default function Page() {
   return (
     <div>
-      <h2 className="mb-4 text-center text-2xl font-bold md:mb-8 md:text-3xl">
+      <h2 className="mb-8 text-center text-3xl font-bold sm:mb-16 md:text-3xl">
         Enter your physical data
       </h2>
 
       <form
-        className="grid grid-cols-1 justify-center gap-3 rounded-lg bg-white p-6 shadow-md sm:grid-cols-2 md:gap-10 md:px-16"
+        className="grid grid-cols-1 justify-center gap-4 rounded-lg bg-white p-6 shadow-md sm:grid-cols-2 sm:gap-10 md:px-16"
         action={calcMacrosAction}
       >
         {/* Age */}
