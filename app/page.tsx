@@ -1,12 +1,23 @@
+import {
+  AdjustmentsHorizontalIcon,
+  ChartBarIcon,
+  SparklesIcon,
+  UserCircleIcon,
+} from "@heroicons/react/20/solid";
 import Image from "next/image";
+import { ElementType } from "react";
 import Button from "./_components/LinkButton";
-import { ChevronDoubleRightIcon } from "@heroicons/react/16/solid";
 
-function Feature({ text }: { text: string }) {
+type FeatureProps = {
+  children: React.ReactNode;
+  icon: ElementType;
+};
+
+function Feature({ children, icon: Icon }: FeatureProps) {
   return (
-    <div className="flex items-center gap-3 text-base sm:text-xl md:text-2xl">
-      <ChevronDoubleRightIcon className="h-6 w-6 text-green-400" />
-      <span>{text}</span>
+    <div className="flex items-center gap-3 text-base sm:text-xl md:text-xl">
+      <Icon className="h-6 w-6 text-green-600 md:h-8 md:w-8" />
+      <span>{children}</span>
     </div>
   );
 }
@@ -25,7 +36,7 @@ export default function Page() {
       </div>
 
       {/* Main image */}
-      <div className="relative mt-6 mb-12 w-full max-w-2xl">
+      <div className="relative mt-6 mb-12 w-full max-w-2xl md:mb-20">
         <Image
           className="h-auto w-full"
           priority
@@ -37,11 +48,16 @@ export default function Page() {
       </div>
 
       {/* Features */}
-      <div className="mb-8 flex flex-col gap-3 text-center md:gap-6">
-        <Feature text="Track your macros with precision." />
-        <Feature text="Easily monitor your daily intake." />
-        <Feature text="Get personalized meal plans." />
-        <Feature text="Optimize your diet for best results." />
+      <div className="mb-8 flex flex-col gap-3 text-center md:gap-6 lg:flex-row">
+        {/* Import the icons from heroicons */}
+        <Feature icon={AdjustmentsHorizontalIcon}>
+          Track your macros with precision.
+        </Feature>
+        <Feature icon={ChartBarIcon}>Easily monitor your daily intake.</Feature>
+        <Feature icon={UserCircleIcon}>Get personalized meal plans.</Feature>
+        <Feature icon={SparklesIcon}>
+          Optimize your diet for best results.
+        </Feature>
       </div>
 
       <Button href="/login">START</Button>
