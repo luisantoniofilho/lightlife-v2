@@ -11,13 +11,13 @@ function capitalize(str: string) {
 export default function Select({ name, label, options }: SelectProps) {
   return (
     <div>
-      <label className="block font-medium text-gray-700 md:text-xl">
+      <label className="block font-medium text-gray-700 sm:text-xl">
         {label}
       </label>
       <select
         name={name}
         defaultValue=""
-        className="mt-1 w-full rounded-lg border border-gray-300 p-2 focus:ring focus:ring-green-400 md:text-xl"
+        className="mt-1 w-full rounded-lg border border-gray-300 p-2 focus:ring focus:ring-green-400 sm:text-xl"
       >
         <option value="" disabled>
           Select one option
