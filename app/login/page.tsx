@@ -14,7 +14,7 @@ export default async function Page() {
       <div className="flex w-full max-w-md flex-col items-center rounded-2xl bg-white p-8 shadow-lg sm:max-w-lg md:max-w-xl md:p-12">
         {!session ? (
           <>
-            <h2 className="mb-4 text-center text-3xl font-bold">Welcome</h2>
+            <h2 className="mb-4 text-center text-3xl font-bold">Welcome!</h2>
             <p className="mb-6 text-center text-base text-gray-600 md:text-lg">
               Sign in or create an account
             </p>
