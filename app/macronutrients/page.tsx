@@ -1,3 +1,4 @@
+import { Caption } from "@/_components/Caption";
 import { auth } from "@/_lib/auth";
 import { getUserData } from "@/_lib/firebaseActions";
 import MacrosGraphic from "../_components/MacrosGraphic";
