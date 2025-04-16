@@ -3,6 +3,7 @@
 import PreserveParamsButton from "@/_components/PreserveParamsButton";
 import { calcPercentage } from "@/utils/calcPercentage";
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
+import LinkButton from "./LinkButton";
 
 type MacrosGraphicProps = {
   macros: {
@@ -123,9 +124,7 @@ export default function MacrosGraphic(props: MacrosGraphicProps) {
             </div>
           ))}
         </div>
-        <PreserveParamsButton newPath="/mealsSuggestions">
-          Meals suggestions
-        </PreserveParamsButton>
+        <LinkButton href="/recipeSuggestions">Recipe suggestions</LinkButton>
       </div>
     </div>
   );
