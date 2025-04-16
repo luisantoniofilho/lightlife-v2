@@ -32,10 +32,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
         {/* Header */}
         <SessionProvider>
           <Header />
-        </SessionProvider>
 
-        {/* Page content */}
-        <main className="mx-auto flex-grow p-6">{children}</main>
+          {/* Page content */}
+          <main className="mx-auto flex-grow p-6">{children}</main>
+        </SessionProvider>
 
         {/* Footer */}
         <Footer />
