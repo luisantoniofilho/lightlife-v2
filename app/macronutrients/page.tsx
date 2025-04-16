@@ -17,8 +17,8 @@ export default async function page() {
     <section>
       <Suspense fallback={<Spinner />}>
         <MacrosGraphic
-          macros={user!.macros}
-          totalCalories={user!.totalCalories}
+          macros={user.macros}
+          totalCalories={user.totalCalories}
         />
       </div>
 
