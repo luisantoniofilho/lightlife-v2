@@ -10,6 +10,7 @@ export default function SigninButton() {
           alt="Google logo"
           height={24}
           width={24}
+          className="rounded-full border border-white bg-white"
         />
         <span>Continue with google</span>
       </button>
