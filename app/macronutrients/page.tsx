@@ -11,6 +11,8 @@ export default async function page() {
 
   const user = await getUserData(session.user.email);
 
+  if (!user) throw new Error("User data not found");
+
   return (
     <section>
       <Suspense fallback={<Spinner />}>
