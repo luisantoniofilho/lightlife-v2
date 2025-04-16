@@ -18,7 +18,18 @@ export default async function page() {
           macros={user!.macros}
           totalCalories={user!.totalCalories}
         />
-      </Suspense>
+      </div>
+
+      <div>
+        <h2 className="text-xl font-bold">Caption</h2>
+        <div className="grid grid-cols-2 gap-2">
+          {/* Caption */}
+          <Caption label="Calories">{user.totalCalories} g</Caption>
+          <Caption label="Carbohydrates">{user.macros.carbs} g</Caption>
+          <Caption label="Protein">{user.macros.protein} g</Caption>
+          <Caption label="Fat">{user.macros.fat} g</Caption>
+        </div>
+      </div>
     </section>
   );
 }
