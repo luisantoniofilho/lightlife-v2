@@ -11,7 +11,7 @@ export function MobileMenuButton({
 }: MobileMenuButtonProps) {
   return (
     <button
-      className="ml-auto cursor-pointer p-2 text-gray-700 sm:hidden"
+      className="ml-auto cursor-pointer p-2 text-gray-700 md:hidden"
       onClick={() => setMenuIsOpen((prev) => !prev)}
     >
       {menuIsOpen ? (
