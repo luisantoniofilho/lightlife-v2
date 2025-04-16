@@ -1,6 +1,5 @@
 "use client";
 
-import PreserveParamsButton from "@/_components/PreserveParamsButton";
 import { calcPercentage } from "@/utils/calcPercentage";
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
 import LinkButton from "./LinkButton";
