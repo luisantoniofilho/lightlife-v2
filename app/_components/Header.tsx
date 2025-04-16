@@ -28,7 +28,7 @@ export function Header() {
       </Link>
 
       {/* Desktop menu */}
-      <nav className="hidden gap-4 sm:flex sm:gap-6">
+      <nav className="hidden gap-4 md:flex md:gap-6">
         {links.map(({ href, label }) => (
           <HeaderLink key={href} href={href}>
             {label}
