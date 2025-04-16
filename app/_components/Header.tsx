@@ -53,7 +53,7 @@ export function Header() {
 
       {/* Mobile drawer */}
       <nav
-        className={`fixed top-0 right-0 z-50 h-full w-64 transform bg-green-50 p-6 shadow-lg transition-transform duration-300 ${
+        className={`fixed top-0 right-0 z-50 h-full w-80 transform bg-green-50 p-6 shadow-lg transition-transform duration-300 ${
           menuIsOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
