@@ -11,7 +11,7 @@ export default async function Page() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100 p-4">
-      <div className="flex w-full min-w-2 flex-col items-center rounded-lg bg-white p-6 shadow-md">
+      <div className="flex w-full max-w-md flex-col items-center rounded-2xl bg-white p-8 shadow-lg sm:max-w-lg md:max-w-xl md:p-12">
         {!session ? (
           <>
             <h2 className="mb-4 text-center text-3xl font-bold">Welcome</h2>
@@ -22,11 +22,11 @@ export default async function Page() {
           </>
         ) : (
           <>
-            <h2 className="mb-4 text-center text-2xl font-bold">
-              Welcome again!
+            <h2 className="mb-4 text-center text-3xl font-bold">
+              You are already logged in!
             </h2>
-            <p className="mb-6 text-center text-gray-600">
-              Sign in or create an account
+            <p className="mb-6 text-center text-base text-gray-600 md:text-lg">
+              Want to logout?
             </p>
             <SignoutButton />
           </>
