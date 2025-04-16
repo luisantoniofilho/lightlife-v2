@@ -2,8 +2,6 @@ import { Caption } from "@/_components/Caption";
 import { auth } from "@/_lib/auth";
 import { getUserData } from "@/_lib/firebaseActions";
 import MacrosGraphic from "../_components/MacrosGraphic";
-import { Suspense } from "react";
-import Spinner from "@/_components/Spinner";
 
 export default async function page() {
   const session = await auth();
@@ -15,8 +13,8 @@ export default async function page() {
   if (!user) throw new Error("User data not found");
 
   return (
-    <section>
-      <Suspense fallback={<Spinner />}>
+    <section className="flex flex-col items-center md:flex-row md:gap-8">
+      <div className="mb-4">
         <MacrosGraphic
           macros={user.macros}
           totalCalories={user.totalCalories}
