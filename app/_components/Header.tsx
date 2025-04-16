@@ -69,7 +69,7 @@ export function Header() {
           {/* Home link */}
           <li>
             <HeaderLink href="/" onClick={handleCloseMenu}>
-              Início
+              Main page
             </HeaderLink>
           </li>
 
