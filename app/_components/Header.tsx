@@ -14,7 +14,7 @@ export function Header() {
   const links = [
     { href: "/form", label: "Form" },
     { href: "/macronutrients", label: "Your macronutrients" },
-    { href: "/recipesSuggestions", label: "Recipes suggestions" },
+    { href: "/recipesSuggestions", label: "Recipe suggestions" },
   ];
 
   return (
