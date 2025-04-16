@@ -1,7 +1,7 @@
+import { Caption } from "@/_components/Caption";
 import { auth } from "@/_lib/auth";
 import { getUserData } from "@/_lib/firebaseActions";
 import { getMeals } from "@/_lib/spoonacular";
-import { ReactNode } from "react";
 import MealItem from "./Recipe";
 
 type MealData = {
@@ -25,21 +25,6 @@ async function Page() {
 
   const data = await getMeals(totalCalories);
   const { meals, nutrients } = data;
-
-  function Caption({
-    label,
-    children,
-  }: {
-    label: string;
-    children: ReactNode;
-  }) {
-    return (
-      <div className="rounded-lg p-4">
-        <h3 className="font-semibold md:text-xl">{label}</h3>
-        <p className="md:text-lg">{children}</p>
-      </div>
-    );
-  }
 
   return (
     <div>
