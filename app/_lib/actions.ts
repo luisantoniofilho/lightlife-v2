@@ -49,6 +49,7 @@ export async function calcMacrosAction(formData: FormData) {
 
   // Updating user's macros and calories (was null)
   await saveUserData(user.email, {
+    goal,
     macros: { carbs, protein, fat },
     totalCalories,
   });
