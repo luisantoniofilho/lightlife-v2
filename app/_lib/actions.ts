@@ -6,6 +6,7 @@ import { calcTotalCalories } from "@/utils/calcTotalCalories";
 import { redirect } from "next/navigation";
 import { auth, signIn, signOut } from "./auth";
 import { saveUserData } from "./firebaseActions";
+import { macroFormSchema } from "@/schemas/macroFormSchema";
 
 export async function signInAction() {
   await signIn("google", { redirectTo: "/form" });
@@ -16,17 +17,18 @@ export async function signOutAction() {
 }
 
 export async function calcMacrosAction(formData: FormData) {
+  // Transform FormData in object
+  const rawData = Object.fromEntries(formData.entries());
+
+  const parsed = macroFormSchema.safeParse(rawData);
+
+  if (!parsed.success) {
+    console.error(parsed.error.flatten());
+    throw new Error("Invalid form data");
+  }
+
   // Taking the form data
-  const age = Number(formData.get("age"));
-  const weight = Number(formData.get("weight"));
-  const height = Number(formData.get("height"));
-  const gender = formData.get("gender") as "male" | "female";
-  const activityLevel = formData.get("activityLevel") as
-    | "sedentary"
-    | "light"
-    | "moderate"
-    | "active";
-  const goal = formData.get("goal") as "gain-muscle" | "lose-fat" | "maintain";
+  const { age, weight, height, gender, activityLevel, goal } = parsed.data;
 
   // Calculating metabolic basal rate
   const MBR = calcMetabolicBasalRate({ age, weight, height, gender });
