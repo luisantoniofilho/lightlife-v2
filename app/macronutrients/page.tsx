@@ -24,16 +24,16 @@ export default async function page() {
           totalCalories={user.totalCalories}
         />
 
-      <div>
-        <h2 className="text-xl font-bold">Caption</h2>
+        <div>
+          <h2 className="text-xl font-bold">Caption</h2>
 
           <div className="grid grid-cols-3 gap-2">
-          {/* Caption */}
+            {/* Caption */}
             <Caption label="User goal:">{user.goal}</Caption>
             <Caption label="Calories">{user.totalCalories} kcal</Caption>
-          <Caption label="Carbohydrates">{user.macros.carbs} g</Caption>
-          <Caption label="Protein">{user.macros.protein} g</Caption>
-          <Caption label="Fat">{user.macros.fat} g</Caption>
+            <Caption label="Carbohydrates">{user.macros.carbs} g</Caption>
+            <Caption label="Protein">{user.macros.protein} g</Caption>
+            <Caption label="Fat">{user.macros.fat} g</Caption>
           </div>
         </div>
       </div>

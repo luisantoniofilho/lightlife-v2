@@ -53,10 +53,8 @@ export default function MacrosGraphic(props: MacrosGraphicProps) {
 
   return (
     <div className="flex flex-col items-center justify-center bg-stone-100">
-      <h1 className="mb-10 text-2xl font-bold">Macronutrients distribution</h1>
-
-      <div className="flex h-[500px] w-[350px] flex-col items-center justify-center rounded-lg bg-stone-100 p-2 shadow-md">
-        <p className="mb-4 text-lg font-semibold text-gray-700">
+      <div className="flex h-[500px] w-[350px] flex-col items-center justify-center rounded-lg bg-stone-100 p-2">
+        <p className="text-lg font-semibold text-gray-700">
           Total calories: {totalCalories} kcal
         </p>
 
