@@ -24,7 +24,7 @@ export async function calcMacrosAction(formData: FormData) {
 
   if (!parsed.success) {
     console.error(parsed.error.flatten());
-    throw new Error("Invalid form data");
+    return { error: parsed.error.flatten() };
   }
 
   // Taking the form data
