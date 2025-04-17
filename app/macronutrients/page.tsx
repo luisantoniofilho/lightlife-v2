@@ -13,13 +13,16 @@ export default async function page() {
   if (!user) throw new Error("User data not found");
 
   return (
-    <section className="flex flex-col items-center md:flex-row md:gap-8">
-      <div className="mb-4">
+    <section>
+      <h1 className="mb-10 text-center text-2xl font-bold">
+        Macronutrients distribution
+      </h1>
+
+      <div className="flex flex-col items-center gap-8 md:flex-row md:gap-8">
         <MacrosGraphic
           macros={user.macros}
           totalCalories={user.totalCalories}
         />
-      </div>
 
       <div>
         <h2 className="text-xl font-bold">Caption</h2>
