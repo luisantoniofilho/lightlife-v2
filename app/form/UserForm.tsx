@@ -6,13 +6,20 @@ import Select from "@/_components/Select";
 import SpinnerMini from "@/_components/SpinnerMini";
 import { calcMacrosAction } from "@/_lib/actions";
 import { useTransition } from "react";
+import toast from "react-hot-toast";
 
 export default function UserForm() {
   const [isPending, startTransition] = useTransition();
 
   function handleSubmit(formData: FormData) {
-    startTransition(() => {
-      calcMacrosAction(formData);
+    startTransition(async () => {
+      const result = await calcMacrosAction(formData);
+
+      if (!result?.error) {
+        toast.error("Please fill all fields correctly.");
+      } else {
+        toast.success("Dados enviados com sucesso!");
+      }
     });
   }
 
