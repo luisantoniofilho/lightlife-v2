@@ -5,21 +5,14 @@ import Input from "@/_components/Input";
 import Select from "@/_components/Select";
 import SpinnerMini from "@/_components/SpinnerMini";
 import { calcMacrosAction } from "@/_lib/actions";
-import { useState, useTransition } from "react";
+import { useTransition } from "react";
 
 export default function UserForm() {
-  const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
 
   function handleSubmit(formData: FormData) {
-    setError(null);
-    startTransition(async () => {
-      try {
-        await calcMacrosAction(formData);
-      } catch (err) {
-        setError("There was an error submitting the form");
-        console.error(err);
-      }
+    startTransition(() => {
+      calcMacrosAction(formData);
     });
   }
 
@@ -74,7 +67,6 @@ export default function UserForm() {
         <Button type="submit" disable={isPending}>
           {isPending ? <SpinnerMini /> : "Send form"}
         </Button>
-        {error && <p>{error}</p>}
       </div>
     </form>
   );
