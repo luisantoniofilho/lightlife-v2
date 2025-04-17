@@ -12,7 +12,6 @@ export async function createUser({
     fullName,
     email,
     createdAt: new Date().toISOString(),
-    macros: null,
   };
 
   const usersRef = collection(db, "users");
