@@ -32,6 +32,7 @@ export async function getUserData(userEmail: string) {
 }
 
 type UserData = {
+  goal: string;
   macros: {
     carbs: number;
     protein: number;
@@ -44,6 +45,7 @@ export async function saveUserData(userEmail: string, userData: UserData) {
   const userRef = doc(db, "users", userEmail);
 
   await updateDoc(userRef, {
+    goal: userData.goal,
     macros: {
       carbs: userData.macros.carbs,
       protein: userData.macros.protein,
