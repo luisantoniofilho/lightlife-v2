@@ -3,6 +3,7 @@
 import Button from "@/_components/Button";
 import Input from "@/_components/Input";
 import Select from "@/_components/Select";
+import SpinnerMini from "@/_components/SpinnerMini";
 import { calcMacrosAction } from "@/_lib/actions";
 import { useTransition } from "react";
 
@@ -64,7 +65,7 @@ export default function UserForm() {
       {/* Send button */}
       <div className="flex justify-center sm:col-span-2">
         <Button type="submit" disable={isPending}>
-          {isPending ? "Calculating macros..." : "Send form"}
+          {isPending ? <SpinnerMini /> : "Send form"}
         </Button>
       </div>
     </form>
