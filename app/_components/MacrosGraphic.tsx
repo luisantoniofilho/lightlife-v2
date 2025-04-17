@@ -49,7 +49,7 @@ export default function MacrosGraphic(props: MacrosGraphicProps) {
     },
   ];
 
-  const COLORS = ["#4CAF50", "#FF9800", "#F44336"];
+  const COLORS = ["#5a9bf1", "#a6a09b", "#fab650"];
 
   return (
     <div className="flex flex-col items-center justify-center bg-stone-100">
