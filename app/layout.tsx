@@ -5,6 +5,7 @@ import { ReactNode } from "react";
 
 import { Quicksand } from "next/font/google"; // Importando a fonte Quicksand
 import { SessionProvider } from "next-auth/react";
+import { Toaster } from "react-hot-toast";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       >
         {/* Header */}
         <SessionProvider>
+          <Toaster />
           <Header />
 
           {/* Page content */}
