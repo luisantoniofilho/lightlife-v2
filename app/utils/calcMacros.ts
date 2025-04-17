@@ -43,7 +43,7 @@ export function calcMacros({
     kcals = TEE + 400;
 
     // 2g per kg
-    protein = weight * 2;
+    protein = Math.round(weight * 2);
   }
   // Lose fat
   else if (goal === "lose-fat") {
@@ -51,14 +51,14 @@ export function calcMacros({
     kcals = TEE - (weight < 100 ? 1000 : 1500);
 
     // 2.2g per kg
-    protein = weight * 2.2;
+    protein = Math.round(weight * 2.2);
   }
   // Mantain weight
   else {
     kcals = TEE;
 
     // 2g per kg
-    protein = weight * 2;
+    protein = Math.round(weight * 2);
   }
 
   const totalKcalFatAndProtein = fat * 9 + protein * 4;

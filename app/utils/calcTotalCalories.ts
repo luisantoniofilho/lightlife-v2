@@ -13,7 +13,9 @@ export function calcTotalCalories({
   const proteinCalories = protein * 4;
   const fatCalories = fat * 9;
 
-  const totalCalories = carbsCalories + proteinCalories + fatCalories;
+  const totalCalories = Math.round(
+    carbsCalories + proteinCalories + fatCalories,
+  );
 
   return totalCalories;
 }
