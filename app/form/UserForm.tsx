@@ -29,6 +29,8 @@ export default function UserForm() {
       className="grid grid-cols-1 justify-center gap-4 rounded-lg bg-white p-6 shadow-md sm:grid-cols-2 sm:gap-10 md:px-16"
       action={handleSubmit}
     >
+      <h2 className="col-span-full text-center text-2xl font-bold">Form</h2>
+
       {/* Age */}
       <Input
         label="Age"
