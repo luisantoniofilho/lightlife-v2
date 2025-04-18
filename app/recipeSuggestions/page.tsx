@@ -30,7 +30,7 @@ async function Page() {
     <div>
       <div className="mb-6">
         <h2 className="mb-2 text-2xl font-bold md:text-3xl">
-          Recipes Suggestion total nutrients
+          Recipe suggestions total nutrients
         </h2>
         <div className="grid grid-cols-2 gap-4">
           <Caption label="Calories">
