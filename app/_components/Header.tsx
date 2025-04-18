@@ -58,7 +58,7 @@ export function Header() {
         }`}
       >
         <div className="mb-2 flex">
-          <LoginIcon />
+          <LoginIcon onClick={setMenuIsOpen} />
           <MobileMenuButton
             menuIsOpen={menuIsOpen}
             setMenuIsOpen={setMenuIsOpen}
