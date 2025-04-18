@@ -18,7 +18,7 @@ export function Header() {
   ];
 
   return (
-    <header className="flex items-center justify-between border-b border-stone-50 px-6 py-4 md:gap-4 lg:mx-10">
+    <header className="flex items-center justify-between px-6 py-4 md:gap-4 lg:mx-10">
       {/* Logo */}
       <Link
         href="/"
