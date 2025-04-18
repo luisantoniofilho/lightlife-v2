@@ -2,8 +2,13 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { HeaderLink } from "./HeaderLink";
 import SpinnerMini from "./SpinnerMini";
+import React, { Dispatch, SetStateAction } from "react";
 
-export function LoginIcon() {
+export function LoginIcon({
+  onClick,
+}: {
+  onClick?: Dispatch<SetStateAction<boolean>>;
+}) {
   const { data: session, status } = useSession();
 
   return (
@@ -18,6 +23,7 @@ export function LoginIcon() {
           alt="User"
           width={25}
           height={25}
+          onClick={() => onClick?.((prev) => !prev)}
         />
       ) : (
         "Login"
