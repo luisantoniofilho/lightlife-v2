@@ -69,7 +69,7 @@ export default function UserForm() {
       <Select
         label="Goal"
         name="goal"
-        options={["gain-muscle", "lose-fat", "mantain"]}
+        options={["gain-muscle", "lose-fat", "maintain"]}
       />
 
       {/* Send button */}
