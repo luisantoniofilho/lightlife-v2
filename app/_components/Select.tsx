@@ -1,12 +1,10 @@
+import { capitalize } from "@/utils/capitalize";
+
 type SelectProps = {
   name: string;
   label: string;
   options: string[];
 };
-
-function capitalize(str: string) {
-  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-}
 
 export default function Select({ name, label, options }: SelectProps) {
   return (
