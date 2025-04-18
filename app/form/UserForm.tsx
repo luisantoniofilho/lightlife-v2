@@ -5,6 +5,7 @@ import Input from "@/_components/Input";
 import Select from "@/_components/Select";
 import SpinnerMini from "@/_components/SpinnerMini";
 import { calcMacrosAction } from "@/_lib/actions";
+import { capitalize } from "@/utils/capitalize";
 import { useTransition } from "react";
 import toast from "react-hot-toast";
 
@@ -15,10 +16,10 @@ export default function UserForm() {
     startTransition(async () => {
       const result = await calcMacrosAction(formData);
 
-      if (!result?.error) {
-        toast.error("Please fill all fields correctly.");
-      } else {
-        toast.success("Dados enviados com sucesso!");
+      if (result.error) {
+        Object.entries(result.error.fieldErrors).forEach(([key, value]) => {
+          toast.error(`${capitalize(key)}: ${value[0].toLowerCase()}`);
+        });
       }
     });
   }
