@@ -53,7 +53,7 @@ export default function MacrosGraphic(props: MacrosGraphicProps) {
 
   return (
     <div className="flex flex-col items-center justify-center bg-stone-100">
-      <div className="flex h-[500px] w-[350px] flex-col items-center justify-center rounded-lg bg-stone-100 p-2">
+      <div className="flex h-[500px] w-[300px] flex-col items-center justify-center rounded-lg bg-stone-100 p-2">
         <p className="text-lg font-semibold text-gray-700">
           Total calories: {totalCalories} kcal
         </p>
