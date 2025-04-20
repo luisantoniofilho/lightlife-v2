@@ -27,7 +27,7 @@ export default async function page() {
         <div>
           <h2 className="text-xl font-bold">Caption</h2>
 
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-3">
             {/* Caption */}
             <Caption label="User goal:">{user.goal}</Caption>
             <Caption label="Calories">{user.totalCalories} kcal</Caption>
