@@ -8,10 +8,7 @@ Here are the next improvements planned for the application:
 
 🔁✅
 
-- 🔁 Centralize button to recipeSuggestions page on macronutrients page
 - 🔁 Tell the user on the form page that send the form again will overwrite it's current data
-- 🔁 Review click configuration for the graphic chart
-- 🔁 Test the form without shadows
 
 ## Tech Stack
 
