@@ -22,7 +22,7 @@ export function Header() {
       {/* Logo */}
       <Link
         href="/"
-        className="text-primary-900 hover:text-primary-200 text-2xl lg:text-3xl"
+        className="text-primary-900 hover:text-primary-200 text-2xl transition-all duration-300 lg:text-3xl"
       >
         LightLifeV2
       </Link>
