@@ -2,6 +2,7 @@ import { Caption } from "@/_components/Caption";
 import { auth } from "@/_lib/auth";
 import { getUserData } from "@/_lib/firebaseActions";
 import MacrosGraphic from "../_components/MacrosGraphic";
+import { capitalize } from "@/utils/capitalize";
 
 export default async function page() {
   const session = await auth();
@@ -33,9 +34,9 @@ export default async function page() {
               {capitalize(user.goal).replace("-", " ")}
             </Caption>
             <Caption label="Calories">{user.totalCalories} kcal</Caption>
-            <Caption label="Carbohydrates">{user.macros.carbs} g</Caption>
-            <Caption label="Protein">{user.macros.protein} g</Caption>
             <Caption label="Fat">{user.macros.fat} g</Caption>
+            <Caption label="Protein">{user.macros.protein} g</Caption>
+            <Caption label="Carbohydrates">{user.macros.carbs} g</Caption>
           </div>
         </div>
       </div>
