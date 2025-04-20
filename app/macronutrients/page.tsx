@@ -29,7 +29,9 @@ export default async function page() {
 
           <div className="grid grid-cols-3">
             {/* Caption */}
-            <Caption label="User goal:">{user.goal}</Caption>
+            <Caption label="Goal">
+              {capitalize(user.goal).replace("-", " ")}
+            </Caption>
             <Caption label="Calories">{user.totalCalories} kcal</Caption>
             <Caption label="Carbohydrates">{user.macros.carbs} g</Caption>
             <Caption label="Protein">{user.macros.protein} g</Caption>
