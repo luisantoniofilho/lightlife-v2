@@ -5,10 +5,12 @@ import MacrosGraphic from "../_components/MacrosGraphic";
 import { capitalize } from "@/utils/capitalize";
 
 export default async function page() {
+  // Authentication check
   const session = await auth();
 
   if (!session?.user?.email) throw new Error("User not authenticated");
 
+  // Fetch user data
   const user = await getUserData(session.user.email);
 
   if (!user) throw new Error("User data not found");
