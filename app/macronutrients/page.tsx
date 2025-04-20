@@ -22,7 +22,7 @@ export default async function page() {
       </h1>
 
       {/* Main grid container */}
-      <div className="grid w-full max-w-4xl grid-cols-1 items-center justify-items-center gap-8 md:grid-cols-2 md:grid-rows-[auto_auto]">
+      <div className="grid w-full max-w-4xl grid-cols-1 items-center justify-items-center md:grid-cols-2 md:grid-rows-[auto_auto] md:gap-10 lg:gap-12">
         {/* Graphic - takes first column on desktop */}
         <div className="md:col-span-1">
           <MacrosGraphic
@@ -32,7 +32,7 @@ export default async function page() {
         </div>
 
         {/* Button - full width row below on desktop, between graphic and caption on mobile */}
-        <div className="flex justify-center md:col-span-2 md:row-start-2">
+        <div className="mb-8 flex justify-center md:col-span-2 md:row-start-2 md:mb-0">
           <LinkButton href="/recipeSuggestions">Recipe suggestions</LinkButton>
         </div>
 
