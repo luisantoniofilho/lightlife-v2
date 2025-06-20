@@ -3,7 +3,7 @@ import { ClockIcon, UsersIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
 
-export type MealProps = {
+export type MealItemProps = {
   title: string;
   image: string;
   readyInTime: number;
@@ -17,7 +17,7 @@ export function MealItem({
   readyInTime,
   servings,
   sourceUrl,
-}: MealProps) {
+}: MealItemProps) {
   return (
     <div className="flex max-w-sm flex-col items-center justify-center rounded-lg bg-white text-center shadow-md transition hover:shadow-lg">
       {/* Image */}
