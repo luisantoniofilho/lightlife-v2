@@ -2,6 +2,7 @@ import { Caption } from "@/_components/Caption";
 import { auth } from "@/_lib/auth";
 import { getUserData } from "@/_lib/firebaseActions";
 import { getMeals } from "@/_lib/spoonacular";
+import { redirect } from "next/navigation";
 import MealItem from "./Recipe";
 
 type MealData = {
@@ -15,7 +16,9 @@ type MealData = {
 };
 
 async function Page() {
+  // Authentication check
   const session = await auth();
+  if (!session?.user?.email) redirect("/login");
 
   if (!session?.user?.email) throw new Error("User not authenticated");
 

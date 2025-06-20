@@ -4,11 +4,12 @@ import MacrosGraphic from "@/_components/MacrosGraphic";
 import { auth } from "@/_lib/auth";
 import { getUser } from "@/_lib/mongodb/mongodbActions";
 import { capitalize } from "@/utils/capitalize";
+import { redirect } from "next/navigation";
 
 export default async function page() {
   // Authentication check
   const session = await auth();
-  if (!session?.user?.email) throw new Error("User not authenticated");
+  if (!session?.user?.email) redirect("/login");
 
   // Fetch user data
   const user = await getUserData(session.user.email);
