@@ -2,7 +2,7 @@ import { Caption } from "@/_components/Caption";
 import LinkButton from "@/_components/LinkButton";
 import MacrosGraphic from "@/_components/MacrosGraphic";
 import { auth } from "@/_lib/auth";
-import { getUserData } from "@/_lib/firebaseActions";
+import { getUser } from "@/_lib/mongodb/mongodbActions";
 import { capitalize } from "@/utils/capitalize";
 
 export default async function page() {
@@ -26,8 +26,8 @@ export default async function page() {
         {/* Graphic - takes first column on desktop */}
         <div className="md:col-span-1">
           <MacrosGraphic
-            macros={user.macros}
-            totalCalories={user.totalCalories}
+            macros={user.nutrition.macros}
+            totalCalories={user.nutrition.totalCalories}
           />
         </div>
 
@@ -41,11 +41,13 @@ export default async function page() {
           <h2 className="text-xl font-bold">Caption</h2>
           <div className="grid grid-cols-2 gap-4">
             <Caption label="Goal">
-              {capitalize(user.goal).replace("-", " ")}
+              {capitalize(user.nutrition.goal).replace("-", " ")}
             </Caption>
-            <Caption label="Protein">{user.macros.protein} g</Caption>
-            <Caption label="Fat">{user.macros.fat} g</Caption>
-            <Caption label="Carbohydrates">{user.macros.carbs} g</Caption>
+            <Caption label="Protein">{user.nutrition.macros.protein} g</Caption>
+            <Caption label="Fat">{user.nutrition.macros.fat} g</Caption>
+            <Caption label="Carbohydrates">
+              {user.nutrition.macros.carbs} g
+            </Caption>
           </div>
         </div>
       </div>
