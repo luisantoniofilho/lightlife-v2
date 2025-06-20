@@ -1,8 +1,12 @@
-import NextAuth, { Session, User } from "next-auth";
+import NextAuth, { User } from "next-auth";
 import Google from "next-auth/providers/google";
-import { createUser, getUserData } from "./firebaseActions";
+import { createUser, getUser } from "./mongodb/mongodbActions";
+import { MongoDBAdapter } from "@auth/mongodb-adapter";
+import client from "./mongodb/mongodbConfig";
 
-const authConfig = {
+export const { handlers, signIn, signOut, auth } = NextAuth({
+  trustHost: true,
+  adapter: MongoDBAdapter(client),
   providers: [
     Google({
       clientId: process.env.AUTH_GOOGLE_ID,
@@ -10,16 +14,12 @@ const authConfig = {
     }),
   ],
   callbacks: {
-    authorized({ auth }: { auth: Session | null }) {
-      // If user was authenticated, returns true
-      return !!auth?.user;
-    },
     async signIn({ user }: { user: User }) {
       try {
         if (!user.email || !user.name) return false;
 
         // Check if user already exists
-        const existingUser = await getUserData(user.email);
+        const existingUser = await getUser(user.email);
 
         if (!existingUser) {
           await createUser({ fullName: user.name, email: user.email });
@@ -35,11 +35,4 @@ const authConfig = {
   pages: {
     signIn: "/login",
   },
-};
-
-export const {
-  handlers: { GET, POST },
-  signIn,
-  signOut,
-  auth,
-} = NextAuth(authConfig);
+});
