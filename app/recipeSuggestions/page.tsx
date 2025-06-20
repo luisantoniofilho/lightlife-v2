@@ -1,6 +1,6 @@
 import { Caption } from "@/_components/Caption";
 import { auth } from "@/_lib/auth";
-import { getUserData } from "@/_lib/firebaseActions";
+import { getUser } from "@/_lib/mongodb/mongodbActions";
 import { getMeals } from "@/_lib/spoonacular";
 import { redirect } from "next/navigation";
 import MealItem from "./Recipe";
@@ -20,11 +20,11 @@ async function Page() {
   const session = await auth();
   if (!session?.user?.email) redirect("/login");
 
-  if (!session?.user?.email) throw new Error("User not authenticated");
+  const userData = await getUser(session?.user?.email);
 
   const userData = await getUserData(session?.user?.email);
 
-  const totalCalories = userData!.totalCalories;
+  const totalCalories = userData.nutrition.totalCalories;
 
   const data = await getMeals(totalCalories);
   const { meals, nutrients } = data;
