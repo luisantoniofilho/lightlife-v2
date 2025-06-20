@@ -1,4 +1,5 @@
 import { Caption } from "@/_components/Caption";
+import MissingNutritionAlert from "@/_components/MissingNutritionAlert";
 import { auth } from "@/_lib/auth";
 import { getUser } from "@/_lib/mongodb/mongodbActions";
 import { getMeals } from "@/_lib/spoonacular";
@@ -22,7 +23,7 @@ async function Page() {
 
   const userData = await getUser(session?.user?.email);
 
-  const userData = await getUserData(session?.user?.email);
+  if (!userData?.nutrition) return <MissingNutritionAlert />;
 
   const totalCalories = userData.nutrition.totalCalories;
 

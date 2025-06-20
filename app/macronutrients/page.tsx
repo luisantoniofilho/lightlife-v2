@@ -1,6 +1,7 @@
 import { Caption } from "@/_components/Caption";
 import LinkButton from "@/_components/LinkButton";
 import MacrosGraphic from "@/_components/MacrosGraphic";
+import MissingNutritionAlert from "@/_components/MissingNutritionAlert";
 import { auth } from "@/_lib/auth";
 import { getUser } from "@/_lib/mongodb/mongodbActions";
 import { capitalize } from "@/utils/capitalize";
@@ -12,8 +13,10 @@ export default async function page() {
   if (!session?.user?.email) redirect("/login");
 
   // Fetch user data
-  const user = await getUserData(session.user.email);
+  const user = await getUser(session.user.email);
   if (!user) throw new Error("User data not found");
+
+  if (!user?.nutrition) return <MissingNutritionAlert />;
 
   return (
     <section className="flex flex-col items-center">
