@@ -5,7 +5,6 @@ import Input from "@/_components/Input";
 import Select from "@/_components/Select";
 import SpinnerMini from "@/_components/SpinnerMini";
 import { calcMacrosAction } from "@/_lib/actions";
-import { capitalize } from "@/utils/capitalize";
 import { useTransition } from "react";
 import toast from "react-hot-toast";
 
@@ -14,12 +13,26 @@ export default function UserForm() {
 
   function handleSubmit(formData: FormData) {
     startTransition(async () => {
-      const result = await calcMacrosAction(formData);
+      const { error } = await calcMacrosAction(formData);
 
-      if (result.error) {
-        Object.entries(result.error.fieldErrors).forEach(([key, value]) => {
-          toast.error(`${capitalize(key)}: ${value[0].toLowerCase()}`);
-        });
+      /* Error example from Zod
+      ✖ Título muito curto
+      → at title */
+
+      if (error) {
+        console.error(error);
+        error
+          // Split the error string into lines
+          .split("\n")
+          // Keep only the lines that contain error messages
+          .filter((line) => line.startsWith("✖"))
+          // Remove the ✖ symbol and trim whitespace
+          .map((line) => line.replace("✖", "").trim())
+          // Filter out any empty or falsy values
+          .filter(Boolean)
+          // Display each error message using a toast
+          .forEach((msg) => toast.error(msg, { duration: 4000 }));
+        return;
       }
     });
   }
